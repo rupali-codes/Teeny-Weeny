@@ -1,0 +1,146 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+#sign,
+#get-start,
+#shorten {
+    background-color: hsl(180, 66%, 49%);
+    border: none;
+}
+
+#input-field {
+    background-image: url("images/bg-shorten-desktop.svg"), linear-gradient( hsl(257, 27%, 26%), hsl(257, 27%, 26%));
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+a{
+    text-decoration: none;
+    color: hsl(0, 0%, 75%);
+    cursor: pointer;
+}
+a:hover{
+   color: hsl(255, 11%, 22%);
+}
+
+#sign a{
+    color: white;
+}
+
+.footer{
+    margin-top: 10%;
+}
+
+.boost{
+   background-image: url("images/bg-boost-desktop.svg"), linear-gradient( hsl(257, 27%, 26%), hsl(257, 27%, 26%));
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    padding: 6%;
+    margin: 0px;
+}
+.boost-heading{
+    color: white;
+}
+
+footer{
+    background-color: hsl(255, 11%, 22%);
+    height: 260px;
+    margin: 0px;
+    color: white;
+    display: flex;
+    width: 100%;
+}
+.shortly{
+    margin: 5%;
+    text-align: left;
+}
+
+.links{
+    margin-top: 3%;
+    margin-left: 15%;
+    display: flex;
+}
+.features, .resources, .company{
+    margin: 20px 40px;
+}
+h3{
+    font-size: 17px;
+}
+.link{
+    color: hsl(0, 0%, 75%);
+    font-weight: normal;
+}
+.link a:hover{
+    color: white;
+}
+.icons{
+    display: flex;
+}
+.icon{
+    height: 25px;
+    width: 25px;
+    margin: 10%;
+    margin-top: 62px;
+}
+
+
+@media screen and (max-width:768px) {
+    #illustration-image {
+        order: 1;
+    }
+    #buildText {
+        order: 2;
+    }
+    #navmenu {
+        background-color: hsl(257, 27%, 26%);
+        position: fixed;
+        top: 10%;
+        left: 50%;
+        width: 80%;
+        transform: translate(-50%, 0);
+    }
+    .nav-item {
+        font-size: 25px;
+        color: white;
+        cursor: pointer;
+    }
+    #main-nav {
+        border-bottom: 1px solid rgb(65, 6, 65);
+    }
+
+    .boost{
+        padding: 40px;
+        margin: 0px;
+    }
+    .boost h1{
+        font-size: 20px;
+    }
+    .shortly{
+        margin: 0;
+        text-align: center;
+}
+    footer{
+        display: block;
+        height: initial;
+        text-align: center;
+    }
+    .links{
+        display: block;
+        margin: auto;
+        padding: auto;
+    }
+    h3{
+        font-size: 13px;
+    }
+    .icons{
+        display: block;
+    }
+    .icon{
+        height: 17px;
+        width: 17px;
+        margin: 5px;
+    }
+
+}
