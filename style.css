@@ -14,6 +14,8 @@
     background-image: url("images/bg-shorten-desktop.svg"), linear-gradient( hsl(257, 27%, 26%), hsl(257, 27%, 26%));
     background-repeat: no-repeat;
     background-size: cover;
+    transform: translateY(50%);
+    border-radius: 10px;
 }
 a{
     text-decoration: none;
@@ -29,7 +31,7 @@ a:hover{
 }
 
 .footer{
-    margin-top: 10%;
+    background-color: #eee;
 }
 
 .boost{
@@ -38,7 +40,6 @@ a:hover{
     background-size: cover;
     text-align: center;
     padding: 6%;
-    margin: 0px;
 }
 .boost-heading{
     color: white;
@@ -86,6 +87,55 @@ h3{
 }
 
 
+.statistics{
+    background-color: #eee; 
+    padding: 6%;
+    padding-top: 10%;
+}
+.headings{
+    text-align: center;
+}
+.headings h3, .item h3{
+    color: hsl(0, 0%, 75%);
+}
+.items{
+    display: flex;
+}
+.item{
+    background-color: white;
+    width: 30%;
+    padding: 40px;
+    padding-top: 10px;
+    border-radius: 5px;
+    margin-top: 8%;
+    height: initial;
+}
+.item h2{
+    font-size: 25px;
+}
+.item img{
+    background-color: hsl(255, 11%, 22%);
+    padding: 15px;
+    border-radius: 100%;
+    transform: translateY(-60%);
+}
+.brand{
+    margin-bottom: 14%;
+}
+.records{
+    margin-top: 12%;
+    margin-bottom: 10%;
+}
+.customize{
+    margin-top: 16%;
+    margin-bottom: 6%;
+}
+.line{
+    height: 10px;
+    width: 30px;
+    background-color: hsl(180, 66%, 49%);
+    margin-top: 20%;
+}
 @media screen and (max-width:768px) {
     #illustration-image {
         order: 1;
@@ -120,7 +170,7 @@ h3{
     .shortly{
         margin: 0;
         text-align: center;
-}
+    }
     footer{
         display: block;
         height: initial;
@@ -142,5 +192,34 @@ h3{
         width: 17px;
         margin: 5px;
     }
-
+    .statistics{
+        padding-top: 45%;
+    }
+    .items{
+        display: block;
+    }
+    .item{
+    width: 100%;
+    text-align: center;
+    }
+    .item h2{
+        font-size: 20px;
+    }
+    .item img{
+        padding: 10px;
+    }
+    .brand{
+        margin-top: 20%;
+        margin-bottom: 0px;
+    }
+    .records, .customize{
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+    .line{
+        height: 70px;
+        width: 10px;
+        background-color: hsl(180, 66%, 49%);
+        margin: auto;
+    }
 }
