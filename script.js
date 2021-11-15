@@ -11,23 +11,29 @@ const shortIt = async function(link){
 		const data = await res.json();
 		return data;
 	}catch(err){
-		alert(err.message);
+		throw new Error("Failed to fetch data. Please try again :(")
 	}
 }
 
 btn.addEventListener('click', function(){
 	const link = input.value;
 	if(!link){
-		throw new Error("Invalid Input");
+		alert("Please input a valid link :(");
+		return;
 	}
+
 	const data = shortIt(link);
 	data.then(res => {
 		c2c.classList.remove('hidden');
-		clipboard.value = res.result.original_link;
-	})
+		clipboard.value = res.result.short_link3;
+	}).catch(err => alert(err.message))
 })
 
 btnCopy.addEventListener('click', function(){
-	navigator.clipboard.writeText(clipboard.value);
-	alert("Link copied.");
+	if(clipboard.value){
+		navigator.clipboard.writeText(clipboard.value);
+		alert("Link copied :)");
+	}else{
+		alert("Nothing to copy :(");
+	}
 })

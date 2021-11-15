@@ -17,7 +17,7 @@
     background-image: url("images/bg-shorten-desktop.svg"), linear-gradient( hsl(257, 27%, 26%), hsl(257, 27%, 26%));
     background-repeat: no-repeat;
     background-size: cover;
-    transform: translateY(50%);
+    transform: translateY(60%);
     border-radius: 10px;
 }
 a{
@@ -43,7 +43,7 @@ a:hover{
     background-repeat: no-repeat;
     background-size: cover;
     text-align: center;
-    padding: 6%;
+    padding: 7%;
 }
 .boost-heading{
     color: white;
@@ -167,7 +167,7 @@ h3{
     }
 
     .boost{
-        padding: 40px;
+        padding: 17%;
         margin: 0px;
     }
     .boost h1{
