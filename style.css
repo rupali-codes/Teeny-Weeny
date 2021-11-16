@@ -1,6 +1,7 @@
 *{
     margin: 0px;
     padding: 0px;
+    /*background-color: #eee;*/
 }
 
 #sign,
@@ -10,6 +11,9 @@
     background-color: hsl(180, 66%, 49%);
     border: none;
 }
+#input{
+    background-color: white;
+}
 .hidden{
     display: none;
 }
@@ -17,7 +21,7 @@
     background-image: url("images/bg-shorten-desktop.svg"), linear-gradient( hsl(257, 27%, 26%), hsl(257, 27%, 26%));
     background-repeat: no-repeat;
     background-size: cover;
-    transform: translateY(60%);
+    transform: translateY(50%);
     border-radius: 10px;
 }
 a{
@@ -96,7 +100,7 @@ h3{
     background-color: #eee; 
     padding: 6%;
     padding-top: 10%;
-    margin-top: 30px;
+    /*margin-top: 30px;*/
 }
 .headings{
     text-align: center;
@@ -141,6 +145,25 @@ h3{
     width: 30px;
     background-color: hsl(180, 66%, 49%);
     margin-top: 20%;
+}
+
+.list{
+    /*display: block;*/
+    color: black;
+    background-color: #eee;
+    /*text-align: center;*/
+    padding-top: 12%;
+}
+.lnk{
+   display: flex;
+   background-color: white;
+   border-radius: 10px;
+   font-weight: bold;
+   margin-top: 10px;
+   justify-content: space-between;
+}
+.shorted{
+    color: hsl(180, 66%, 49%);   
 }
 @media screen and (max-width:768px) {
     #illustration-image {

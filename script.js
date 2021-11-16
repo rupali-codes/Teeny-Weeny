@@ -1,10 +1,7 @@
 const input = document.querySelector('#input');
 const btn = document.querySelector('#shorten');
-const clipboard = document.querySelector('#clipboard');
 const btnCopy = document.querySelector('#copy');
-const c2c = document.querySelector('#c2c'); 
-
-const shortedLinksArr = [];
+const history = document.querySelector('#history'); 
 
 const shortIt = async function(link){
 	try{
@@ -17,10 +14,6 @@ const shortIt = async function(link){
 	}
 }
 
-const storage = function(value){
-	localStorage.setItem('links', JSON.stringify(value));
-}
-
 btn.addEventListener('click', function(){
 	const link = input.value;
 	if(!link){
@@ -30,20 +23,52 @@ btn.addEventListener('click', function(){
 
 	const data = shortIt(link);
 	data.then(res => {
-		c2c.classList.remove('hidden');
-		clipboard.value = res.result.short_link3;
-		shortedLinksArr.push(clipboard.value);
-		console.log(shortedLinksArr);
-		storage(shortedLinksArr);
+		function store(sl){
+			let links;
+			let ol;
+			if(localStorage.getItem('links') && localStorage.getItem('ol')){ 
+				links = JSON.parse(localStorage.getItem('links'))
+				ol = JSON.parse(localStorage.getItem('ol'))
+			}
+			else{
+				links = []
+				ol = [];
+			}
+
+			links.push(sl)
+			ol.push(link);
+
+			localStorage.setItem('links', JSON.stringify(links));
+			localStorage.setItem('ol', JSON.stringify(ol));
+
+
+			if(links){
+				history.innerHTML = '';
+				for(let i in links){
+					const markup = `	
+						<div class="p-3 lnk">
+					        <div class="original">${ol[i]}</div>
+					        <div class="shorted">${links[i]}</div>
+					        <button class="btn btn-danger rounded ms-md-4" id="copy" onclick={${navigator.clipboard.writeText(links[i])}}>Copy</button>
+					     </div>
+						`;
+
+					history.insertAdjacentHTML('beforeend', markup);
+				}
+			}
+		}
+		store(res.result.short_link3)
+		input.value = '';
 
 	}).catch(err => alert(err.message))
 })
 
-btnCopy.addEventListener('click', function(){
-	if(clipboard.value){
-		navigator.clipboard.writeText(clipboard.value);
+const c2c =  function(value){
+	console.log("mncsf")
+	if(value){
+		navigator.clipboard.writeText(value);
 		alert("Link copied :)");
 	}else{
 		alert("Nothing to copy :(");
 	}
-})
+}
