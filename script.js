@@ -2,7 +2,9 @@ const input = document.querySelector('#input');
 const btn = document.querySelector('#shorten');
 const clipboard = document.querySelector('#clipboard');
 const btnCopy = document.querySelector('#copy');
-const c2c = document.querySelector('#c2c');
+const c2c = document.querySelector('#c2c'); 
+
+const shortedLinksArr = [];
 
 const shortIt = async function(link){
 	try{
@@ -13,6 +15,10 @@ const shortIt = async function(link){
 	}catch(err){
 		throw new Error("Failed to fetch data. Please try again :(")
 	}
+}
+
+const storage = function(value){
+	localStorage.setItem('links', JSON.stringify(value));
 }
 
 btn.addEventListener('click', function(){
@@ -26,6 +32,10 @@ btn.addEventListener('click', function(){
 	data.then(res => {
 		c2c.classList.remove('hidden');
 		clipboard.value = res.result.short_link3;
+		shortedLinksArr.push(clipboard.value);
+		console.log(shortedLinksArr);
+		storage(shortedLinksArr);
+
 	}).catch(err => alert(err.message))
 })
 
