@@ -23,8 +23,8 @@ btn.addEventListener('click', function() {
         if (!link) {
             throw new Error("Please input a valid link :(");
         }
-         error.classList.add('hidden');
-         input.style.border = 'none';
+        error.classList.add('hidden');
+        input.style.border = 'none';
         const data = shortIt(link);
         data.then(res => {
             function store(sl) {
@@ -87,3 +87,7 @@ const c2c = function() {
     })
 }
 c2c();
+
+//for clearing local storage
+// localStorage.clear('links');
+// localStorage.clear('ol');
