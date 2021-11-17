@@ -1,8 +1,10 @@
 const input = document.querySelector('#input');
+const error = document.querySelector('#err');
 const btn = document.querySelector('#shorten');
-const btnCopy = document.querySelector('#copy');
+const list = document.querySelector('.list');
 const history = document.querySelector('#history'); 
 
+//fetching data
 const shortIt = async function(link){
 	try{
 		const res = await fetch(`https://api.shrtco.de/v2/shorten?url=${link}/very/long/link.html`);
@@ -10,15 +12,16 @@ const shortIt = async function(link){
 		const data = await res.json();
 		return data;
 	}catch(err){
-		throw new Error("Failed to fetch data. Please try again :(")
+		throw new Error("Failed to load data. Please try again :(")
 	}
 }
 
+//btn shorten it
 btn.addEventListener('click', function(){
 	const link = input.value;
-	if(!link){
-		alert("Please input a valid link :(");
-		return;
+	try{
+		if(!link){
+		throw new Error("Please input a valid link :(");
 	}
 
 	const data = shortIt(link);
@@ -44,6 +47,7 @@ btn.addEventListener('click', function(){
 
 			if(links){
 				history.innerHTML = '';
+				list.classList.remove('hidden');
 				for(let i in links){
 					const markup = `	
 						<div class="p-3 lnk">
@@ -53,14 +57,21 @@ btn.addEventListener('click', function(){
 					     </div>
 						`;
 
-					history.insertAdjacentHTML('beforeend', markup);
+					history.insertAdjacentHTML('afterbegin', markup);
 				}
 			}
 		}
 		store(res.result.short_link3)
 		input.value = '';
 
-	}).catch(err => alert(err.message))
+	}).catch(err => {
+		throw new Error("something went wrong")
+	})
+	}catch(err){
+		input.style.border = "2px solid hsl(0, 87%, 67%)";
+		error.classList.remove('hidden');
+		error.textContent = "Please add a link";
+	}
 })
 
 const c2c =  function(){
