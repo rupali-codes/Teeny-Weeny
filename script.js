@@ -49,7 +49,7 @@ btn.addEventListener('click', function(){
 						<div class="p-3 lnk">
 					        <div class="original">${ol[i]}</div>
 					        <div class="shorted">${links[i]}</div>
-					        <button class="btn btn-danger rounded ms-md-4" id="copy" onclick={${navigator.clipboard.writeText(links[i])}}>Copy</button>
+					        <button class="btn btn-danger rounded ms-md-4" id="copy" data-copy-to-clipboard ="${links[i]}">Copy</button>
 					     </div>
 						`;
 
@@ -63,12 +63,17 @@ btn.addEventListener('click', function(){
 	}).catch(err => alert(err.message))
 })
 
-const c2c =  function(value){
-	console.log("mncsf")
-	if(value){
-		navigator.clipboard.writeText(value);
-		alert("Link copied :)");
-	}else{
-		alert("Nothing to copy :(");
-	}
+const c2c =  function(){
+	history.addEventListener('click', function(e){
+		const copy = e.target.closest('#copy');
+
+		if(!copy) return;
+
+		const cpy = copy.dataset.copyToClipboard;
+		console.log(cpy);
+		navigator.clipboard.writeText(cpy);
+		copy.style.backgroundColor = "hsl(255, 11%, 22%)";
+		copy.textContent = "Copied!";
+	})
 }
+c2c();
