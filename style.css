@@ -1,7 +1,6 @@
 *{
     margin: 0px;
     padding: 0px;
-    /*background-color: #eee;*/
 }
 
 #sign,
@@ -163,6 +162,9 @@ h3{
 .shorted{
     color: hsl(180, 66%, 49%);   
 }
+.original{
+    overflow: hidden;
+}
 #err{
     color: hsl(0, 87%, 67%);
     font-style: italic;
@@ -224,7 +226,7 @@ h3{
         margin: 5px;
     }
     .statistics{
-        padding-top: 45%;
+        padding-top: 30%;
     }
     .items{
         display: block;
