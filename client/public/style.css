@@ -48,47 +48,6 @@ a:hover{
     color: white;
 }
 
-footer{
-    background-color: hsl(255, 11%, 22%);
-    height: 260px;
-    margin: 0px;
-    color: white;
-    display: flex;
-    width: 100%;
-}
-.shortly{
-    margin: 5%;
-    text-align: left;
-}
-
-.links{
-    margin-top: 3%;
-    margin-left: 15%;
-    display: flex;
-}
-.features, .resources, .company{
-    margin: 20px 40px;
-}
-h3{
-    font-size: 17px;
-}
-.link{
-    color: hsl(0, 0%, 75%);
-    font-weight: normal;
-}
-.link a:hover{
-    color: white;
-}
-.icons{
-    display: flex;
-}
-.icon{
-    height: 25px;
-    width: 25px;
-    margin: 10%;
-    margin-top: 62px;
-}
-
 /*middle section*/
 
 .statistics{
@@ -134,12 +93,6 @@ h3{
 .customize{
     margin-top: 16%;
     margin-bottom: 6%;
-}
-.line{
-    height: 10px;
-    width: 30px;
-    background-color: hsl(180, 66%, 49%);
-    margin-top: 20%;
 }
 
 .list{
@@ -196,31 +149,6 @@ h3{
     .boost h1{
         font-size: 20px;
     }
-    .shortly{
-        margin: 0;
-        text-align: center;
-    }
-    footer{
-        display: block;
-        height: initial;
-        text-align: center;
-    }
-    .links{
-        display: block;
-        margin: auto;
-        padding: auto;
-    }
-    h3{
-        font-size: 13px;
-    }
-    .icons{
-        display: block;
-    }
-    .icon{
-        height: 17px;
-        width: 17px;
-        margin: 5px;
-    }
     .statistics{
         padding-top: 30%;
     }
@@ -244,12 +172,6 @@ h3{
     .records, .customize{
         margin-top: 0px;
         margin-bottom: 0px;
-    }
-    .line{
-        height: 70px;
-        width: 10px;
-        background-color: hsl(180, 66%, 49%);
-        margin: auto;
     }
     .list{
         padding-top: 10%;

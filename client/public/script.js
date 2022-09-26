@@ -3,6 +3,7 @@ const error = document.querySelector('#err');
 const btn = document.querySelector('#shorten');
 const list = document.querySelector('.list');
 const history = document.querySelector('#history');
+const statistics = document.querySelector('#statistics')
 
 //fetching data
 const shortIt = async function(link) {
@@ -88,6 +89,37 @@ const c2c = function() {
 }
 c2c();
 
-//for clearing local storage
-// localStorage.clear('links');
-// localStorage.clear('ol');
+//--------------------
+const statesHTML = (stats) => {
+    return `
+         <div class="brand item mx-3 box-shadow" style="transform: translateY(25deg);">
+            <img src="images/${stats.icon}.svg">
+            <h2>${stats.title}</h2>
+            <p class="text-muted">
+                ${stats.desc}
+            </p>
+        </div>
+    `
+}
+
+const statsObj = [
+    {
+        icon: 'icon-brand-recognition',
+        title: 'Brand Recognization',
+        desc: 'Boost your brand reconigtion with each click. Generic dont mean a thing. Brnaded links help instil confidence your content.'
+    },
+    {
+        icon: 'icon-detailed-records',
+        title: 'Detailed Records',
+        desc: 'Boost your brand reconigtion with each click. Generic dont mean a thing. Brnaded links help instil confidence your content.'
+    },
+    {
+        icon: 'icon-fully-customizable',
+        title: 'Fully Customizable',
+        desc: 'Boost your brand reconigtion with each click. Generic dont mean a thing. Brnaded links help instil confidence your content.'
+    } 
+]
+
+for(s of statsObj) {
+    statistics.insertAdjacentHTML('beforeend', statesHTML(s))
+}
