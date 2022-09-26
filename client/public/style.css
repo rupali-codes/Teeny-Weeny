@@ -3,11 +3,9 @@
     padding: 0px;
 }
 
-#sign,
-#get-start,
-#shorten,
-#copy {
-    background-color: hsl(180, 66%, 49%);
+button {
+    background-color: hsl(180, 66%, 49%) !important;
+    color:  white !important;
     border: none;
 }
 #input{
@@ -36,16 +34,14 @@ a:hover{
     color: white;
 }
 
-/*footer*/
 .footer{
     background-color: #eee;
 }
 
-.boost{
+.boost, .bg-pruple{
    background-image: url("images/bg-boost-desktop.svg"), linear-gradient( hsl(257, 27%, 26%), hsl(257, 27%, 26%));
     background-repeat: no-repeat;
     background-size: cover;
-    text-align: center;
     padding: 7%;
 }
 .boost-heading{
@@ -231,7 +227,7 @@ h3{
     .items{
         display: block;
     }
-    .item{
+    .item, {
     width: 100%;
     text-align: center;
     }
