@@ -44,9 +44,9 @@
     	<h1 class="text-center">WELCOME</h1>
         <div class="container">
             <div class=" p-5" id="input-field">
-                <form class=" d-flex input-parent m-auto" style="flex-wrap: wrap;">
-                    <input type="text" class="p-2 rounded col-md-9 col-12" id="input" placeholder="Shorten a link here">
-                    <button class="btn mt-2 mt-md-0 ms-md-5 ms-0 rounded col-md-2 col-12" id="shorten">Shorten it</button>
+                <form class=" d-flex input-parent m-auto" style="flex-wrap: wrap;" method="POST" action="/shortit">
+                    <input type="text" class="p-2 rounded col-md-9 col-12" id="input" placeholder="Shorten a link here" name="originallink">
+                    <button class="btn mt-2 mt-md-0 ms-md-5 ms-0 rounded col-md-2 col-12" id="shorten" type="submit">Shorten it</button>
                 </form>
                 <div id="err" class="hidden">ERRR</div>
             </div>

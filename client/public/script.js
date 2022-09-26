@@ -17,8 +17,8 @@ const shortIt = async function(link) {
 }
 
 //btn shorten it
-btn.addEventListener('click', function(e) {
-    e.preventDefault()
+btn.addEventListener('click', async function(e) {
+    // e.preventDefault()
     const link = input.value;
     try {
         if (!link) {
@@ -26,10 +26,23 @@ btn.addEventListener('click', function(e) {
         }
         error.classList.add('hidden');
         input.style.border = 'none';
-        const data = shortIt(link);
+        const data = await shortIt(link);
+
+        console.log(data.result.short_link2)
+
+        fetch('/shortit', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },   
+            body: JSON.stringify({
+                originallink: link,  
+                shortlink: data.result.short_link2
+            })
+        })
 
       //>>>>>>>>>>>>>>>>>>>>> saving links in localstorage
-      
+
       //   data.then(res => {
       //       function store(sl) {
       //           let links;
@@ -73,7 +86,7 @@ btn.addEventListener('click', function(e) {
     } catch (err) {
         input.style.border = "2px solid hsl(0, 87%, 67%)";
         error.classList.remove('hidden');
-        error.textContent = "Please add a link";
+        error.textContent = err.message;
     }
 })
 

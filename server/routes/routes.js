@@ -1,9 +1,22 @@
 const express = require('express')
 const User = require('../models/user')
+const Shortlink = require('../models/shortlink')
 const bcrypt = require('bcrypt')
 const verify = require('../config/user_auth')
 
 const router = express.Router()
+
+// methods
+// const shortIt = async function(link) {
+//     try {
+//         const res = await fetch(`https://api.shrtco.de/v2/shorten?url=${link}/very/long/link.html`);
+
+//         const data = await res.json();
+//         return data;
+//     } catch (err) {
+//         throw new Error(err)
+//     }
+// }
 
 
 router.get('/', (req, res) => {
@@ -67,7 +80,29 @@ router.post('/login', async (req, res) => {
 	}
 }) 
 
+router.post('/shortit', verify, async (req, res) => {
+	try {
+		const link = new Shortlink(req.body)
 
+		// console.log(req.body.originallink)
+
+		// // const shortlink = await shortIt(req.body.originallink)
+
+		// link.originallink = req.body.originallink
+		// link.shortlink = shortlink
+		link.author = req.user._id
+
+		await link.save()
+		res.redirect('dashboard')
+	} catch(err) {
+		res.send({
+			msg: "try again later",
+			err: err.message
+		})
+	}
+})
+
+//test
 router.get('/mylinks', verify, (req, res) => {
 	try {
 		res.send({
