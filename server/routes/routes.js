@@ -61,7 +61,7 @@ router.post('/login', async (req, res) => {
 			err: err.message
 		})
 	}
-})
+}) 
 
 
 router.get('/mylinks', verify, (req, res) => {
