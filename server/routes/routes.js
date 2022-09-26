@@ -22,6 +22,10 @@ router.get('/login', (req, res) => {
 	res.render('login')
 })
 
+router.get('/dashboard', verify, (req, res) => {
+	res.render('dashboard')
+})
+
 router.post('/signup', async (req, res) => {
 	try {
 		const user = new User(req.body)
