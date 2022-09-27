@@ -80,13 +80,12 @@ router.post('/login', async (req, res) => {
 	}
 }) 
 
+//sorting links
 router.post('/shortit', verify, async (req, res) => {
 	try {
 		const link = new Shortlink(req.body)
-		
-		link.author = req.user._id
 
-		console.log("link request body: ", link)
+		link.author = req.user._id
 
 		await link.save()
 		res.redirect('dashboard')
@@ -96,14 +95,13 @@ router.post('/shortit', verify, async (req, res) => {
 			err: err.message
 		})
 	}
-})
+}) 
 
-//test
-router.get('/mylinks', verify, (req, res) => {
+//get links
+router.get('/mylinks', verify, async (req, res) => {
 	try {
-		res.send({
-			msg: "verification working"
-		})
+		const myLinks = await Shortlink.find({author: req.user._id})
+		res.send(myLinks)
 	} catch(err) {
 		res.send({
 			msg: "nah! can not verify"

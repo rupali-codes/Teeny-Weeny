@@ -34,7 +34,6 @@ btn.addEventListener('click', async function(e) {
                 originallink: link,  
                 shortlink: data.result.short_link2
             }
-        console.log("body: ", body)
 
         const postreq = await fetch('/shortit', {
             method: 'POST',
@@ -44,57 +43,33 @@ btn.addEventListener('click', async function(e) {
             },   
         })
 
-         // const postres = await postreq.json()
-         console.log(postreq)
+        input.value = '';
 
-      //>>>>>>>>>>>>>>>>>>>>> saving links in localstorage
-
-      //   data.then(res => {
-      //       function store(sl) {
-      //           let links;
-      //           let ol;
-      //           if (localStorage.getItem('links') && localStorage.getItem('ol')) {
-      //               links = JSON.parse(localStorage.getItem('links'))
-      //               ol = JSON.parse(localStorage.getItem('ol'))
-      //           } else {
-      //               links = []
-      //               ol = [];
-      //           }
-
-      //           links.push(sl)
-      //           ol.push(link);
-
-      //           localStorage.setItem('links', JSON.stringify(links));
-      //           localStorage.setItem('ol', JSON.stringify(ol));
-
-
-      //           if (links) {
-      //               history.innerHTML = '';
-      //               list.classList.remove('hidden');
-      //               for (let i in links) {
-      //                   const markup = `	
-						// <div class="p-3 lnk">
-					 //        <div class="original">${ol[i]}</div>
-					 //        <div class="shorted">${links[i]}</div>
-					 //        <button class="btn rounded ms-md-4" id="copy" data-copy-to-clipboard ="${links[i]}">Copy</button>
-					 //     </div>
-						// `;
-
-      //                   history.insertAdjacentHTML('afterbegin', markup);
-      //               }
-      //           }
-      //       }
-      //       store(res.result.short_link3)
-      //       input.value = '';
-      //   }).catch(err => {
-      //       throw new Error("something went wrong")
-      //   })
     } catch (err) {
         input.style.border = "2px solid hsl(0, 87%, 67%)";
         error.classList.remove('hidden');
         error.textContent = err.message;
     }
 })
+
+fetch('/mylinks')
+    .then(res => res.json())
+    .then(links => {
+        history.innerHTML = '';
+        list.classList.remove('hidden');
+       for(link of links) {
+
+             const markup = `
+                <div class="p-3 lnk">
+                    <div class="original">${link.originallink}</div>
+                    <div class="shorted">${link.shortlink}</div>
+                    <button class="btn rounded ms-md-4" id="copy" data-copy-to-clipboard ="${link.shortlink}">Copy</button>
+                </div>
+           `
+           history.insertAdjacentHTML('afterbegin', markup)
+        }
+    })
+    .catch(err => console.log(err))
 
 const c2c = function() {
     history.addEventListener('click', function(e) {
