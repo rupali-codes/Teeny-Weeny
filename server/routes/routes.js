@@ -36,7 +36,9 @@ router.get('/login', (req, res) => {
 })
 
 router.get('/dashboard', verify, (req, res) => {
-	res.render('dashboard')
+	res.render('dashboard', {
+		name: req.user.name
+	})
 })
 
 router.post('/signup', async (req, res) => {
@@ -80,7 +82,7 @@ router.post('/login', async (req, res) => {
 	}
 }) 
 
-//sorting links
+//shorting links
 router.post('/shortit', verify, async (req, res) => {
 	try {
 		const link = new Shortlink(req.body)

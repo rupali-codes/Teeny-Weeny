@@ -3,6 +3,8 @@ const error = document.querySelector('#err');
 const btn = document.querySelector('#shorten');
 const list = document.querySelector('.list');
 const history = document.querySelector('#history');
+const searchInput = document.querySelector('#searchInput')
+const searchBtn = document.querySelector('#searchBtn')
 
 // import fetch from 'node-fetch';
 
@@ -52,12 +54,10 @@ btn.addEventListener('click', async function(e) {
     }
 })
 
-fetch('/mylinks')
-    .then(res => res.json())
-    .then(links => {
-        history.innerHTML = '';
-        list.classList.remove('hidden');
-       for(link of links) {
+const renderLinks = (links) => {
+    history.innerHTML = '';
+    list.classList.remove('hidden');
+    for(link of links) {
 
              const markup = `
                 <div class="p-3 lnk">
@@ -68,20 +68,54 @@ fetch('/mylinks')
            `
            history.insertAdjacentHTML('afterbegin', markup)
         }
+}
+
+fetch('/mylinks')
+    .then(res => res.json())
+    .then(links => {
+  
+        renderLinks(links)
+       
     })
     .catch(err => console.log(err))
 
-const c2c = function() {
-    history.addEventListener('click', function(e) {
-        const copy = e.target.closest('#copy');
 
-        if (!copy) return;
+history.addEventListener('click', function(e) {
+    const copy = e.target.closest('#copy');
 
-        const cpy = copy.dataset.copyToClipboard;
-        console.log(cpy);
-        navigator.clipboard.writeText(cpy);
-        copy.style.backgroundColor = "hsl(255, 11%, 22%)";
-        copy.textContent = "Copied!";
+    if (!copy) return;
+
+    const cpy = copy.dataset.copyToClipboard;
+    console.log(cpy);
+    navigator.clipboard.writeText(cpy);
+    copy.style.backgroundColor = "hsl(255, 11%, 22%)";
+    copy.textContent = "Copied!";
+})
+
+searchInput.addEventListener('input', () => {
+    const input = searchInput.value
+    let matched = []
+
+    fetch('/mylinks')
+    .then(res => res.json())
+    .then(links => {
+        for (l of links) {
+            if(l.originallink.includes(input))
+                matched.push(l)
+        }
+
+        if(!matched.length)
+            {
+                const markup = `
+                <div class="p-3 lnk">
+                   No links found
+                </div>
+           `
+           history.innerHTML = markup
+            }
+        else 
+            renderLinks(matched)
     })
-}
-c2c();
+})
+
+

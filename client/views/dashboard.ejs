@@ -31,17 +31,9 @@
         </div>
     </nav>
 
-
-    <!-- profile -->
-    <!-- <section class="text-center border mx-auto p-5 text-white rounded" style="width: fit-content; background-color: hsl(180, 66%, 49%);">
-    	<img src="https://dummyimage.com/130x130" class="rounded-circle my-3">
-    	<h3 class="fs-4">Rupali Haldiya</h3>
-    	<h3 class="fs-5">Rupali7487@gmail.com</h3>
-    </section> -->
-
     <!-- links -->
-    <section class=" pt-5 mb-4" id="shortLink">
-    	<h1 class="text-center">WELCOME</h1>
+    <section class=" pt-3 mb-4" id="shortLink">
+    	<h1 class="text-center fs-2">Welcome, <%- name%> :)</h1>
         <div class="container">
             <div class=" p-5" id="input-field">
                 <form class=" d-flex input-parent m-auto" style="flex-wrap: wrap;" >
@@ -54,7 +46,15 @@
     </section>
 
 
-    <section class="list hidden py-5">
+    <section class="list hidden py-5 mt-5 bg-white">
+        <div class="d-flex justify-content-between container mt-3 p-3">
+            <h2 class="text-center text-decoration-underline fs-4">YOUR LINKS</h2>
+
+            <div class="searchBar">
+                <input type="text" name="searchInput" id="searchInput" placeholder="'search'" class="mx-3 px-3 border-0 border-bottom form-control">
+                <!-- <button class="btn-sm " id="searchBtn">Search</button> -->
+            </div>
+        </div>
         <div class="container" id="history">
            
         </div>
