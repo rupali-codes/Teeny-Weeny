@@ -6,19 +6,6 @@ const verify = require('../config/user_auth')
 
 const router = express.Router()
 
-// methods
-// const shortIt = async function(link) {
-//     try {
-//         const res = await fetch(`https://api.shrtco.de/v2/shorten?url=${link}/very/long/link.html`);
-
-//         const data = await res.json();
-//         return data;
-//     } catch (err) {
-//         throw new Error(err)
-//     }
-// }
-
-
 router.get('/', (req, res) => {
 	res.render('index')
 })
@@ -81,6 +68,20 @@ router.post('/login', async (req, res) => {
 		})
 	}
 }) 
+
+router.post('/logout', verify, async (req, res) => {
+	try{
+		req.user.tokens = req.user.tokens.filter(token => token != req.token)
+
+		await req.user.save()
+		res.redirect('/')
+	} catch(err) { 
+		res.send({
+			msg: "something went wrong",
+			err: err.message
+		})
+	}
+})
 
 //shorting links
 router.post('/shortit', verify, async (req, res) => {
