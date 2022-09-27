@@ -71,7 +71,7 @@ router.post('/login', async (req, res) => {
 		console.log("token: ", token)
 		res.cookie("knecst", token)
 
-		res.redirect('/')
+		res.redirect('/dashboard')
 	} catch(err) { 
 		res.send({
 			msg: "something went wrong",
@@ -83,14 +83,10 @@ router.post('/login', async (req, res) => {
 router.post('/shortit', verify, async (req, res) => {
 	try {
 		const link = new Shortlink(req.body)
-
-		// console.log(req.body.originallink)
-
-		// // const shortlink = await shortIt(req.body.originallink)
-
-		// link.originallink = req.body.originallink
-		// link.shortlink = shortlink
+		
 		link.author = req.user._id
+
+		console.log("link request body: ", link)
 
 		await link.save()
 		res.redirect('dashboard')

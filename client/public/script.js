@@ -4,6 +4,8 @@ const btn = document.querySelector('#shorten');
 const list = document.querySelector('.list');
 const history = document.querySelector('#history');
 
+// import fetch from 'node-fetch';
+
 //fetching data
 const shortIt = async function(link) {
     try {
@@ -18,7 +20,7 @@ const shortIt = async function(link) {
 
 //btn shorten it
 btn.addEventListener('click', async function(e) {
-    // e.preventDefault()
+    e.preventDefault()
     const link = input.value;
     try {
         if (!link) {
@@ -28,18 +30,22 @@ btn.addEventListener('click', async function(e) {
         input.style.border = 'none';
         const data = await shortIt(link);
 
-        console.log(data.result.short_link2)
+        const body = {
+                originallink: link,  
+                shortlink: data.result.short_link2
+            }
+        console.log("body: ", body)
 
-        fetch('/shortit', {
+        const postreq = await fetch('/shortit', {
             method: 'POST',
+            body: JSON.stringify(body),
             headers: {
                 'Content-Type': 'application/json'
             },   
-            body: JSON.stringify({
-                originallink: link,  
-                shortlink: data.result.short_link2
-            })
         })
+
+         // const postres = await postreq.json()
+         console.log(postreq)
 
       //>>>>>>>>>>>>>>>>>>>>> saving links in localstorage
 
