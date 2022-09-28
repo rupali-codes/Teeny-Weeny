@@ -6,7 +6,7 @@
 
 ## Brief Description
 
-  Shortly is a URL-shortening app which helps you to keep your links shorter and memorable. It gives you a link whose length is between 15 to 20 characters.
+  Teeny-Weeny is a URL-shortening app which helps you to keep your links shorter and memorable. It gives you a link whose length is between 15 to 20 characters.
 
 
  
