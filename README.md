@@ -1,8 +1,8 @@
-# Shortly 🚀
+# Teeny-Weeny - Short your links in seconds 🚀
 
   Get your links shorten in seconds
 
-![Teeny-Weeny Preview](./images/preview.png)
+![Teeny-Weeny Preview](./client/public/images/preview.png)
 
 ## Brief Description
 
