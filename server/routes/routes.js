@@ -3,6 +3,7 @@ const User = require('../models/user')
 const Shortlink = require('../models/shortlink')
 const bcrypt = require('bcrypt')
 const verify = require('../config/user_auth')
+const {signupHTML, loginHTML} = require('../utils/utils')
 
 const router = express.Router()
 
@@ -11,15 +12,19 @@ router.get('/', (req, res) => {
 })
 
 router.get('/user/dashboard', (req, res) => {
-	res.render('index')
+	res.render('dashboard')
 })
 
 router.get('/signup', (req, res) => {
-	res.render('signup')
+	res.render('render', {
+		html: signupHTML
+	})
 })
 
 router.get('/login', (req, res) => {
-	res.render('login')
+	res.render('render', {
+		html: loginHTML
+	})
 })
 
 router.get('/dashboard', verify, (req, res) => {

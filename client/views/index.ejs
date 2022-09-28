@@ -9,13 +9,13 @@
 <body>
    <%- include('partials/nav.ejs') %>
 
-    <section>
+    <section class="header">
         <div class="container">
             <div class="d-flex justify-content-between pb-5" style="flex-wrap: wrap;">
                 <div class="col-md-5 col-10 pt-5 pt-md-0 m-auto" id="buildText">
                     <h1 style="font-size: 40px; font-weight: bold;">Let's <span style="color: hsl(180, 66%, 49%);">Short</span> your links in <span style="color: hsl(180, 66%, 49%);">Seconds</span></h1>
                     <p class="">Build your brand with recognition and get detailed insight on how are performing</p>
-                    <a href="#shortLink"><button class="btn rounded-pill" id="get-start">Get Started</button></a>
+                    <a href="/login"><button class="btn rounded-pill" id="get-start">Get Started</button></a>
                 </div>
                 <div class="col-md-5 col-10 m-auto  " id="illustration-image">
                     <img class="img-fluid" src="images/illustration-working.svg" alt="">
@@ -41,10 +41,13 @@
     <section class="footer">
         <div class="boost text-center py-5">
             <h1 class="boost-heading">Boost your links today</h1>
-            <a href="#shortLink"><button class="btn" id="get-start">Get Started</button></a>
+            <a href="/login"><button class="btn" id="get-start">Get Started</button></a>
         </div>   
     </section>
-        <p class="bg-dark text-white text-center p-3 m-0 text-muted">&copy; copyright 2022. Developed with love by <a href="https://rupali-codes.netlify.app" class="text-white">Rupali Haldiya</a>.</p>     
+    
+    <footer>
+        <p class="bg-dark text-white text-center p-3 m-0 text-muted">&copy; copyright 2022. Developed with love by <a href="https://rupali-codes.netlify.app" class="text-white">Rupali Haldiya</a>.</p> 
+    </footer> 
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js " integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p " crossorigin="anonymous "></script>
 

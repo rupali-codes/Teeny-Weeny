@@ -1,13 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <%- include('partials/meta.ejs') %>
-	<title>Signup</title>
-</head>
-<body class="bg-pruple" style="height: 100vh;">
-	<%- include('partials/nav.ejs') %>
-
-
+const signupHTML = `
 	<div class="mx-auto my-4 text-white">
 		<h1 class="text-center text-decoration-underline">Signup</h1>
 
@@ -24,7 +15,25 @@
 			<button class="btn btn-commom rounded mt-4 mx-auto w-100" type="submit">Signup</button>
 		</form>
 	</div>
+`
 
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js " integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p " crossorigin="anonymous "></script>
-</body>
-</html>
+const loginHTML = `
+	<div class="mx-auto my-4 text-white">
+		<h1 class="text-center text-decoration-underline">Login</h1>
+
+		<form class="mt-3 mx-auto" style="width: 13.5em;" method="POST" action="/login">
+			<label for="email" class="form-label mt-2">Email</label>
+			<input type="text" name="email" id="name" class="form-control">
+
+			<label for="password" class="form-label mt-2">Password</label>
+			<input type="text" name="password" id="password" class="form-control">
+
+			<button class="btn btn-success rounded mt-4 mx-auto w-100" id="sign">Login</button>
+		</form>
+	</div>
+`
+
+module.exports = {
+	signupHTML,  
+	loginHTML
+}
