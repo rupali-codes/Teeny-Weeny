@@ -2,7 +2,7 @@ const statistics = document.querySelector('#statistics')
 
 const statesHTML = (stats) => {
     return `
-         <div class="brand item mx-3 box-shadow" style="transform: translateY(25deg);">
+         <div class="brand item mx-auto box-shadow" style="transform: translateY(25deg);">
             <img src="images/${stats.icon}.svg">
             <h2>${stats.title}</h2>
             <p class="text-muted">

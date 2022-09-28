@@ -167,6 +167,7 @@ a:hover{
     .brand{
         margin-top: 20%;
         margin-bottom: 0px;
+        width: 100%;
     }
     .records, .customize{
         margin-top: 0px;
