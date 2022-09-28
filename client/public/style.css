@@ -42,7 +42,7 @@ a:hover{
    background-image: url("images/bg-boost-desktop.svg"), linear-gradient( hsl(257, 27%, 26%), hsl(257, 27%, 26%));
     background-repeat: no-repeat;
     background-size: cover;
-    padding: 7%;
+    /*padding: 7%;*/
 }
 .boost-heading{
     color: white;
@@ -53,7 +53,6 @@ a:hover{
 .statistics{
     background-color: #eee; 
     padding: 6%;
-    padding-top: 10%;
     /*margin-top: 30px;*/
 }
 .headings{

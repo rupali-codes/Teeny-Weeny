@@ -6,8 +6,6 @@ const history = document.querySelector('#history');
 const searchInput = document.querySelector('#searchInput')
 const searchBtn = document.querySelector('#searchBtn')
 
-// import fetch from 'node-fetch';
-
 //fetching data
 const shortIt = async function(link) {
     try {
@@ -54,6 +52,7 @@ btn.addEventListener('click', async function(e) {
     }
 })
 
+//render links
 const renderLinks = (links) => {
     history.innerHTML = '';
     list.classList.remove('hidden');
@@ -70,6 +69,7 @@ const renderLinks = (links) => {
         }
 }
 
+//rednering all links of user
 fetch('/mylinks')
     .then(res => res.json())
     .then(links => {
@@ -80,6 +80,7 @@ fetch('/mylinks')
     .catch(err => console.log(err))
 
 
+//copying link to clipboard
 history.addEventListener('click', function(e) {
     const copy = e.target.closest('#copy');
 
@@ -92,6 +93,7 @@ history.addEventListener('click', function(e) {
     copy.textContent = "Copied!";
 })
 
+//implementing searchbar
 searchInput.addEventListener('input', () => {
     const input = searchInput.value
     let matched = []

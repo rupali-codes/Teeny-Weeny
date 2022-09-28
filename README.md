@@ -2,7 +2,7 @@
 
   Get your links shorten in seconds
 
-![Design preview for the Shortly URL shortening API coding challenge](./images/design/desktop-preview.jpg)
+![Teeny-Weeny Preview](./images/preview.png)
 
 ## Brief Description
 
